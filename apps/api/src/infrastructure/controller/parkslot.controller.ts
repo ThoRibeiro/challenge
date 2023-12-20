@@ -1,4 +1,4 @@
-import { Body, Controller, HttpStatus, Post } from '@nestjs/common';
+import { Body, Controller, Delete, HttpStatus, Post } from '@nestjs/common';
 import { CreateParkDTO } from '../../dto/CreatePark.dto';
 import { CreateParkSlot } from '../../domain/services/CreateParkSlot.service';
 
