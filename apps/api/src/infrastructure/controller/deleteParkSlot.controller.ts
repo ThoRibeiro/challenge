@@ -1,14 +1,13 @@
-import { Controller, Get, Res } from '@nestjs/common';
-import { Response } from 'express';
-import { GetParksSlotsService } from 'src/domain/services/getParksSlots.service';
+import { Controller, Delete, HttpStatus, Param } from '@nestjs/common';
+import { DeleteParkSlot } from 'src/domain/services/deleteParkSlot.service';
 
-@Controller('/getParks')
-export class GetParksSlotsController {
-  constructor(private readonly getParksSlotsService: GetParksSlotsService) {}
+@Controller()
+export class ParkSlotController {
+  constructor(private readonly deleteParkSlot: DeleteParkSlot) {}
 
-  @Get()
-  async getParksSlots(@Res() res: Response) {
-    const parks = await this.getParksSlotsService.getParksSlots();
-    return res.status(200).json(parks);
+  @Delete('/deletePark/:id')
+  deletePark(@Param('id') parkId: string) {
+    this.deleteParkSlot.deleteParkById(parkId);
+    HttpStatus.OK;
   }
 }
