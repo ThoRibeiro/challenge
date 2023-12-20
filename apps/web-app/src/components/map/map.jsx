@@ -5,6 +5,7 @@ import "leaflet/dist/leaflet.css";
 import "./map.css";
 import L from "leaflet";
 import markerIcon from "../../assets/iconPosition.svg";
+import mapUndefined from "../../assets/mapUndefined.png";
 
 const MapComponent = ({ address }) => {
   const [coords, setCoords] = useState(null);
@@ -26,7 +27,14 @@ const MapComponent = ({ address }) => {
   }, [address]);
 
   if (!coords) {
-    return <div>Chargement de la carte...</div>;
+    return (
+      <img
+        class="mapContainer"
+        src={mapUndefined}
+        alt="map"
+        className="mapUndefined"
+      />
+    );
   }
 
   const customMarkerIcon = new L.Icon({
