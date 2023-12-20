@@ -8,11 +8,13 @@ import iconCalendar from "../../assets/iconCalendar.svg";
 import iconPrice from "../../assets/iconPrice.svg";
 
 const ListingItemComponent = ({
+  id,
   address,
   startDate,
   endDate,
   price,
   buttonText,
+  onClick = () => {},
 }) => {
   return (
     <div className="listingItemContainer">
@@ -33,7 +35,7 @@ const ListingItemComponent = ({
           <span className="text">{`${price}€ / jour`}</span>
         </div>
         <div className="listItem">
-          <ButtonComponent text={buttonText} />
+          <ButtonComponent text={buttonText} onClick={() => onClick(id)} />
         </div>
       </div>
       <div className="verticalSeparator"></div>
@@ -50,6 +52,7 @@ ListingItemComponent.propTypes = {
   endDate: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   buttonText: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 export default ListingItemComponent;
