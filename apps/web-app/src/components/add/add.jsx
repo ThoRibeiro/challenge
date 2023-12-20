@@ -3,9 +3,9 @@ import Modal from "react-modal";
 import { showSuccessToast, showErrorToast } from "../../services/toastService";
 import useRandomId from "../../services/UserID.Service";
 import "./add.css";
+import { postParkSlot } from "../../services/createService";
 import InputComponent from "../tools/input/input";
 import ButtonComponent from "../tools/button/button";
-import { postCreateParkService } from "../../services/postCreateParkService";
 import iconLocation from "../../assets/iconLocation.svg";
 import iconCalendar from "../../assets/iconCalendar.svg";
 import iconPrice from "../../assets/iconPrice.svg";
@@ -32,7 +32,7 @@ const AddComponent = () => {
       return;
     }
     try {
-      await postCreateParkService(data);
+      await postParkSlot(data);
       setModalIsOpen(false);
       showSuccessToast("Annonce ajoutée avec succès.");
     } catch (error) {

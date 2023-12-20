@@ -4,10 +4,21 @@ import Modal from "react-modal";
 import "./profil.css";
 import ButtonComponent from "../tools/button/button";
 import ListingContainerComponent from "../listingContainer/listingContainer";
+import { deleteParks } from "../../services/deleteParks";
 
 const Profil = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const deleteParks = () => {
+  const id = 1;
 
+  try{
+    deleteParks(id);
+    console.log("OK")
+  }
+  catch(error) {
+    console.error(error)
+  }
+}
   return (
     <div>
       <ButtonComponent text="Mon Profil" onClick={() => setModalIsOpen(true)} />
@@ -22,6 +33,8 @@ const Profil = () => {
             <ListingContainerComponent
               className="listingContainerComponent"
               buttonText="Supprimer"
+              onClick={()=>deleteParks}
+
             />
           </div>
         </div>
