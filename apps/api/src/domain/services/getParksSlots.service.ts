@@ -12,4 +12,13 @@ export class GetParksSlotsService {
   async getParksSlots(): Promise<ParkSlot[]> {
     return this.parkSlotModel.find().exec();
   }
+
+  public async deleteParkById(parkId: string): Promise<void> {
+    try {
+      await this.parkSlotModel.deleteOne({ id: parkId }).exec();
+    } catch (error) {
+      console.error('Error in deleteParkById:', error);
+      throw error;
+    }
+  }
 }

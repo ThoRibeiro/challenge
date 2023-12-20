@@ -23,7 +23,7 @@ import { DeleteParkSlot } from './domain/services/deleteParkSlot.service';
     ParkSlotController,
     GetParksSlotsController,
     DeleteParkSlotController,
-  ], // Ajoutez GetParksSlotsController ici
+  ],
   providers: [
     { provide: ParkSlotRepository, useClass: GetParksSlots },
     CreateParkSlot,

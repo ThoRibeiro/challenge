@@ -23,4 +23,13 @@ export class GetParksSlots implements ParkSlotRepository {
       throw error;
     }
   }
+
+  public async deleteParkById(parkId: string): Promise<void> {
+    try {
+      await this.parkSlotModel.findByIdAndDelete(parkId).exec();
+    } catch (error) {
+      console.error('Error in deleteParkById:', error);
+      throw error;
+    }
+  }
 }
