@@ -12,8 +12,8 @@
 }
 
 .detailsSection {
-  min-width: 50%;
   max-width: 50%;
+
   padding: 1rem;
   display: flex;
   flex-direction: column;
