@@ -2,7 +2,7 @@ import { IsNotEmpty, IsString } from 'class-validator';
 
 export class CreateParkDTO {
   @IsNotEmpty()
-  UserID: number;
+  idUser: string;
 
   @IsNotEmpty()
   @IsString()

@@ -1,5 +1,5 @@
 import { Inject } from '@nestjs/common';
-import { CreateParkDTO } from 'src/dto/createPark.dto';
+import { CreateParkDTO } from 'src/dto/CreatePark.dto';
 import { ParkSlot } from 'src/domain/entities/ParkSlot';
 import { ParkSlotRepository } from 'src/domain/interface/ParkSlotRepository.interface';
 

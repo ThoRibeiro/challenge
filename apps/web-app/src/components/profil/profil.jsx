@@ -12,12 +12,16 @@ const Profil = () => {
     <div>
       <ButtonComponent text="Mon Profil" onClick={() => setModalIsOpen(true)} />
 
-      <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={() => setModalIsOpen(false)}
+        style={{ content: { width: "70%" } }}
+      >
         <div className="containerBody">
           <div className="listingContainerComponent">
             <ListingContainerComponent
               className="listingContainerComponent"
-              buttonText="Supprimé"
+              buttonText="Supprimer"
             />
           </div>
         </div>
