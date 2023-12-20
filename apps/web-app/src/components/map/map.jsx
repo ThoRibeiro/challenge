@@ -27,14 +27,7 @@ const MapComponent = ({ address }) => {
   }, [address]);
 
   if (!coords) {
-    return (
-      <img
-        class="mapContainer"
-        src={mapUndefined}
-        alt="map"
-        className="mapUndefined"
-      />
-    );
+    return <img className="mapContainer" src={mapUndefined} alt="map" />;
   }
 
   const customMarkerIcon = new L.Icon({

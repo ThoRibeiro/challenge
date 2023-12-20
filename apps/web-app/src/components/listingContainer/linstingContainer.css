@@ -1,7 +1,9 @@
 .containerListing {
   max-height: 80vh;
   gap: 1.5em;
-  display: grid;
+
+  flex: 1;
+
   align-items: center;
   justify-content: center;
   overflow-y: auto;
