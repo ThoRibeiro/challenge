@@ -3,7 +3,7 @@ import ListingItemComponent from "../listingItem/listingItem";
 import "./linstingContainer.css";
 import { getParks } from "../../services/getParksService";
 
-const ListingContainerComponent = ({ buttonText = "Louer" }) => {
+const ListingContainerComponent = ({ buttonText = "Louer", onClick }) => {
   const [parks, setParks] = useState([]);
 
   useEffect(() => {
@@ -22,12 +22,14 @@ const ListingContainerComponent = ({ buttonText = "Louer" }) => {
     <div className="containerListing container">
       {parks.map((park, index) => (
         <ListingItemComponent
+          id={park.id}
           key={index}
           address={park.address}
           startDate={park.startDate}
           endDate={park.endDate}
           price={park.price}
           buttonText={buttonText}
+          onClick={onClick}
         />
       ))}
     </div>

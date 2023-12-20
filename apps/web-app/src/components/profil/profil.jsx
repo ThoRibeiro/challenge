@@ -4,25 +4,26 @@ import Modal from "react-modal";
 import "./profil.css";
 import ButtonComponent from "../tools/button/button";
 import ListingContainerComponent from "../listingContainer/listingContainer";
-import { deleteParks } from "../../services/deleteParks";
+import { deleteParksService } from "../../services/deleteParksService";
+import { showSuccessToast } from "../../services/toastService";
 
 const Profil = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const deleteParks = () => {
-  const id = 1;
 
-  try{
-    deleteParks(id);
-    console.log("OK")
-  }
-  catch(error) {
-    console.error(error)
-  }
-}
+  const handleDeleteParks = (parkid) => {
+    const id = parkid;
+    console.log("Deleting park with ID:", id);
+    try {
+      deleteParksService(id);
+      showSuccessToast("Annonce supprimée avec succès.");
+    } catch (error) {
+      showSuccessToast("Erreur lors de la suppression de l'annonce.");
+    }
+  };
+
   return (
     <div>
       <ButtonComponent text="Mon Profil" onClick={() => setModalIsOpen(true)} />
-
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
@@ -33,8 +34,7 @@ const Profil = () => {
             <ListingContainerComponent
               className="listingContainerComponent"
               buttonText="Supprimer"
-              onClick={()=>deleteParks}
-
+              onClick={handleDeleteParks}
             />
           </div>
         </div>

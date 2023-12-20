@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3001/parkSlots";
+const API_URL = "http://localhost:3001/deletePark";
 
-export const deleteParks = async (parkId) => {
+export const deleteParksService = async (parkId) => {
   try {
     const response = await axios.delete(`${API_URL}/${parkId}`);
     return response.data;
